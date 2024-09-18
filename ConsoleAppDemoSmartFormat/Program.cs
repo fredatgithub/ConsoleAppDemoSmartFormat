@@ -34,7 +34,7 @@ namespace ConsoleAppDemoSmartFormat
                                     new[] { 7, 8, 9 }
                                    };
       // "list" is the formatter name
-      _ = Smart.Format("{0:list:Elements\\: {:list:{:000}|, |, }|\n|\n}", data);
+      _ = Smart.Format("{0:list:Elements\\: {:list:{:000}|, |, }|\n|\n}", data4);
       //                |                   |        | |       |      |
       //                |                   |  element format  |      |
       //                |                   |___ inner list ___|      |
@@ -45,8 +45,15 @@ namespace ConsoleAppDemoSmartFormat
       Elements: 007, 008, 009
       */
 
-      Smart.Format("{0:plural(en):zero|one|many}", 1);
+      var number = 0;
+      Smart.Format("{0:plural(en):zero|one|many}", number);
       // outputs "one" for the English language option
+      Console.WriteLine(Smart.Format("{0:plural(en):zero|one|many}", number));
+      number = 1;
+      Console.WriteLine(Smart.Format("{0:plural(en):zero|one|many}", number));
+      Console.WriteLine(Smart.Format("{0:plural(en):zero|un|many}", number));
+      number = 2;
+      Console.WriteLine(Smart.Format("{0:plural(en):zero|one|plusieurs}", number));
 
 
       Console.WriteLine("Press anykey to exit:");
